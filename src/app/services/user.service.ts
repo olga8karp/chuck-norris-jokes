@@ -1,13 +1,6 @@
 import { inject, Injectable, Signal, signal } from '@angular/core';
 import { JokeService } from './joke.service';
-
-export interface User {
-  firstName: string;
-  phoneNumber: string;
-  id: string;
-  joke?: string;
-  highlighted?: boolean;
-}
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
