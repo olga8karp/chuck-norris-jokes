@@ -1,0 +1,64 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+  mat-card {
+    width: 300px;
+  }
+
+  mat-card-header {
+    margin-bottom: 20px;
+  }
+
+  mat-card-title {
+    font-size: 24px;
+    color: #333;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: inherit;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .save-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: inherit;
+  }
+
+  .success-message {
+    text-align: center;
+    padding: 20px 0;
+
+    .button-row {
+      margin-top: 3rem;
+    }
+
+    h3 {
+      color: #4caf50;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+}

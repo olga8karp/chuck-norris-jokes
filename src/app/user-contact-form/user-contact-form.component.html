@@ -1,0 +1,50 @@
+<div class="form-container">
+  <mat-card>
+    <mat-card-content>
+      @if (!formSubmitted) {
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName" placeholder="Enter your first name">
+            @if (firstName?.invalid && (firstName?.dirty || firstName?.touched)) {
+              <mat-error>
+                @if (firstName?.errors?.['required']) {
+                  First name is required.
+                } @else if (firstName?.errors?.['minlength']) {
+                  First name must be at least 2 characters long.
+                }
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phoneNumber" placeholder="Enter your 10-digit phone number">
+            @if (phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)) {
+              <mat-error>
+                @if (phoneNumber?.errors?.['required']) {
+                  Phone number is required.
+                } @else if (phoneNumber?.errors?.['pattern']) {
+                  Phone number must be exactly 10 digits (numbers only).
+                }
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" class="save-button">Save</button>
+          </div>
+        </form>
+      } @else {
+        <div class="success-message">
+          <h3>Form submitted successfully!</h3>
+          <p>First name: {{ formData?.firstName }}</p>
+          <p>Phone number: {{ formData?.phoneNumber }}</p>
+          <div class="button-row">
+            <button mat-raised-button color="primary" (click)="resetForm()" class="save-button">Save another</button>
+          </div>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>
