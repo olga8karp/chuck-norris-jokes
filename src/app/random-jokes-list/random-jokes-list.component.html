@@ -1,0 +1,25 @@
+<div class="list-container">
+  <mat-card>
+    <mat-card-content>
+      @if (users().length > 0) {
+        <mat-list>
+          @for (user of users(); track user.id) {
+            <mat-list-item class="user-item">
+              <div class="user-info">
+                <span class="user-name">{{ user.firstName }}</span>
+                <span class="user-phone">{{ user.phoneNumber }}</span>
+              </div>
+              <button mat-icon-button (click)="removeUser(user.id)" aria-label="Delete user">
+                <mat-icon color="warn">close</mat-icon>
+              </button>
+            </mat-list-item>
+          }
+        </mat-list>
+      } @else {
+        <div class="empty-list">
+          <p>No users added yet.</p>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>
