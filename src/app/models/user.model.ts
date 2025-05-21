@@ -3,5 +3,4 @@ export interface User {
   phoneNumber: string;
   id: string;
   joke?: string;
-  highlighted?: boolean;
 }

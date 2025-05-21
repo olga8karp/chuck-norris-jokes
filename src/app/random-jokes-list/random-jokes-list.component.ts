@@ -1,4 +1,4 @@
-import {Component, inject, Signal} from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -24,7 +24,25 @@ export class RandomJokesListComponent {
   private userService = inject(UserService);
   users: Signal<User[]> = this.userService.getUsers();
 
-  removeUser(id: string): void {
+  removeRow(id: string): void {
     this.userService.removeUser(id);
   }
+
+  isRowHighlighted(index: number): boolean {
+    return this.isFibonacciNumber(index)
+  }
+
+  private isFibonacciNumber(number: number): boolean {
+    if (number === 0 || number === 1) {
+      return true;
+    }
+
+    const isPerfectSquare = (x: number) => {
+      const s = Math.sqrt(x);
+      return s === Math.floor(s);
+    };
+
+    return isPerfectSquare(5 * number * number + 4) || isPerfectSquare(5 * number * number - 4);
+  }
+
 }

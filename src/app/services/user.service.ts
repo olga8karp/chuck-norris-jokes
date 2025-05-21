@@ -22,7 +22,6 @@ export class UserService {
         phoneNumber,
         id: userId,
         joke: joke,
-        highlighted: this.isFibonacciNumber(this.users().length),
       };
 
       this.users.set([...this.users(), newUser]);
@@ -31,21 +30,6 @@ export class UserService {
 
   removeUser(id: string): void {
     this.users.set(this.users().filter(user => user.id !== id));
-  }
-
-  private isFibonacciNumber(number: number): boolean {
-    console.log(number);
-    // Special cases for 0 and 1, which are Fibonacci numbers
-    if (number === 0 || number === 1) {
-      return true;
-    }
-
-    const isPerfectSquare = (x: number) => {
-      const s = Math.sqrt(x);
-      return s === Math.floor(s);
-    };
-
-    return isPerfectSquare(5 * number * number + 4) || isPerfectSquare(5 * number * number - 4);
   }
 
   private generateId(): string {

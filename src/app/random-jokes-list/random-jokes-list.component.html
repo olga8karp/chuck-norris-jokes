@@ -3,14 +3,14 @@
     <mat-card-content>
       @if (users().length > 0) {
         <mat-list>
-          @for (user of users(); track user.id) {
-            <mat-list-item class="user-item" [style.background-color]="user.highlighted ? '#cbf7b8' : 'initial'">
+          @for (user of users(); track user.id; let index = $index) {
+            <mat-list-item class="user-item" [style.background-color]="isRowHighlighted(index) ? '#cbf7b8' : 'initial'">
                 <span class="user-name">{{ user.firstName }}</span> -
                 <span class="user-phone">{{ user.phoneNumber }}</span>
                 @if (user.joke) {
                   <span class="user-joke"> - {{ user.joke }}</span>
                 }
-                <button mat-icon-button (click)="removeUser(user.id)" aria-label="Delete user">
+                <button mat-icon-button (click)="removeRow(user.id)" aria-label="Delete user">
                   <mat-icon color="warn">close</mat-icon>
                 </button>
             </mat-list-item>
