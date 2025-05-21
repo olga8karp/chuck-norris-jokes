@@ -38,25 +38,6 @@ describe('RandomJokesListComponent', () => {
     expect(userServiceSpy.removeUser).toHaveBeenCalledWith(userId);
   });
 
-  it('should correctly identify Fibonacci numbers', () => {
-    const componentAny = component as any;
-
-    expect(componentAny.isFibonacciNumber(0)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(1)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(2)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(3)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(4)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(5)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(6)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(7)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(8)).toBeTrue();
-    expect(componentAny.isFibonacciNumber(9)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(10)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(11)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(12)).toBeFalse();
-    expect(componentAny.isFibonacciNumber(13)).toBeTrue();
-  });
-
   it('should highlight rows at Fibonacci positions', () => {
     expect(component.isRowHighlighted(0)).toBeTrue();
     expect(component.isRowHighlighted(1)).toBeTrue();
@@ -69,5 +50,13 @@ describe('RandomJokesListComponent', () => {
     expect(component.isRowHighlighted(8)).toBeTrue();
     expect(component.isRowHighlighted(9)).toBeFalse();
     expect(component.isRowHighlighted(10)).toBeFalse();
+    expect(component.isRowHighlighted(11)).toBeFalse();
+    expect(component.isRowHighlighted(12)).toBeFalse();
+    expect(component.isRowHighlighted(13)).toBeTrue();
+    expect(component.isRowHighlighted(30)).toBeFalse();
+    expect(component.isRowHighlighted(34)).toBeTrue();
+    expect(component.isRowHighlighted(35)).toBeFalse();
+    expect(component.isRowHighlighted(36)).toBeFalse();
+    expect(component.isRowHighlighted(55)).toBeTrue();
   });
 });
