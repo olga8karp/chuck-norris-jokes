@@ -16,29 +16,21 @@
   }
 
   .user-item {
+    width: 100%;
+    text-wrap: wrap;
+    line-break: anywhere;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    min-height: 2rem;
+    vertical-align: middle;
+    gap: 1rem;
     align-items: center;
     margin-bottom: 8px;
-    height: auto !important;
     padding: 8px 0;
-  }
 
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .user-name {
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-
-  .user-phone {
-    color: #666;
-    font-size: 14px;
+    button {
+      vertical-align: middle;
+    }
   }
 
   .empty-list {

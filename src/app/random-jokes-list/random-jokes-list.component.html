@@ -5,13 +5,11 @@
         <mat-list>
           @for (user of users(); track user.id) {
             <mat-list-item class="user-item">
-              <div class="user-info">
-                <span class="user-name">{{ user.firstName }}</span>
-                <span class="user-phone">{{ user.phoneNumber }}</span>
-              </div>
-              <button mat-icon-button (click)="removeUser(user.id)" aria-label="Delete user">
-                <mat-icon color="warn">close</mat-icon>
-              </button>
+                <span class="user-name">{{ user.firstName }}</span> -
+                <span class="user-phone">{{ user.phoneNumber }}</span> -
+                <button mat-icon-button (click)="removeUser(user.id)" aria-label="Delete user">
+                  <mat-icon color="warn">close</mat-icon>
+                </button>
             </mat-list-item>
           }
         </mat-list>
