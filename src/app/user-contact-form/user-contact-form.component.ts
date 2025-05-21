@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-contact-form',
@@ -23,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 export class UserContactFormComponent {
   formSubmitted = false;
   formData: { firstName: string; phoneNumber: string } | null = null;
+  userService = inject(UserService);
 
   // Form group with validators
   contactForm = new FormGroup({
@@ -52,7 +54,7 @@ export class UserContactFormComponent {
         phoneNumber: this.phoneNumber?.value || ''
       };
       this.formSubmitted = true;
-      console.log('Form submitted:', this.formData);
+      this.userService.addUser(this.formData.firstName, this.formData.phoneNumber);
     } else {
       // Mark all fields as touched to trigger validation messages
       this.contactForm.markAllAsTouched();
