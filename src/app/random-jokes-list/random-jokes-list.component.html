@@ -4,7 +4,7 @@
       @if (users().length > 0) {
         <mat-list>
           @for (user of users(); track user.id) {
-            <mat-list-item class="user-item">
+            <mat-list-item class="user-item" [style.background-color]="user.highlighted ? '#cbf7b8' : 'initial'">
                 <span class="user-name">{{ user.firstName }}</span> -
                 <span class="user-phone">{{ user.phoneNumber }}</span>
                 @if (user.joke) {
