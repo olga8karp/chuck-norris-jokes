@@ -2,16 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-
-export interface ChuckNorrisJoke {
-  id: string;
-  value: string;
-  url: string;
-  icon_url: string;
-  created_at: string;
-  updated_at: string;
-  categories: string[];
-}
+import { ChuckNorrisJoke } from '../models/chuck-norris-joke.model';
 
 @Injectable({
   providedIn: 'root'

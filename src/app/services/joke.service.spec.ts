@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { JokeService, ChuckNorrisJoke } from './joke.service';
+import { JokeService } from './joke.service';
+import { ChuckNorrisJoke } from '../models/chuck-norris-joke.model';
 
 describe('JokeService', () => {
   let service: JokeService;
